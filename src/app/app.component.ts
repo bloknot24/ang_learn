@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    title: string = 'Dynamic title'
-    number: number = 42
-    arr: number[] = [1, 2, 3, 4, 5]
-
-    obj = { a: 1, b: {c: 2} }
-
 }

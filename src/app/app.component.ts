@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 export interface Post {
     title: string
     text: string
-    id?: number
 }
 
 @Component({
@@ -12,10 +12,17 @@ export interface Post {
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-    isVisible = true
+    p: Promise<string> = new Promise<string>(resolve => {
+        setTimeout( () => {
+            resolve('Promise Resolved')
+        }, 4000);
+    })
 
-    ngOnInit(): void {}
-
+    date: Observable<Date> = new Observable( obs => {
+        setInterval( () => {
+            obs.next(new Date())
+        }, 1000)
+    })
 }

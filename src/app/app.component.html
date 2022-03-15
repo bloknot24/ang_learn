@@ -5,22 +5,50 @@
     <div class="form-control">
       <label>Email</label>
       <input type="text" placeholder="Email" formControlName="email">
-      <div class="validation"></div>
+
+      <div
+          *ngIf="form.get('email')!.invalid &&
+          form.get('email')!.touched"
+          class="validation"
+      >
+        <small *ngIf="form.get('email')!.errors?.['required']">
+            Поле email не может быть пустым
+        </small>
+
+        <small *ngIf="form.get('email')!.errors?.['email']">
+            Введите корректный email
+        </small>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Пароль</label>
       <input type="password" placeholder="Пароль" formControlName="password">
-      <div class="validation"></div>
+      <div class="validation"
+          *ngIf="form.get('password')!.invalid &&
+          form.get('password')!.touched"
+          class="validation"
+      >
+        <small *ngIf="form.get('password')!.errors?.['required']">
+           Пароль не может быть пустым
+        </small><br>
+        <small *ngIf="form.get('password')!.errors?.['minlength']">
+           Длина пароля не меньше {{ form.get('password')!.errors?.['minlength']?.['requiredLength'] }} символов.<br>
+           Сейчас символов {{ form.get('password')!.errors?.['minlength']?.['actualLength'] }} символов.
+        </small>
+
+      </div>
     </div>
 
-    <div class="card">
+    <!-- <pre>{{form.get('password')!.errors | json}}</pre> -->
+
+    <div class="card" formGroupName="address">
       <h2>Адрес</h2>
 
       <div class="form-control">
         <label>Страна</label>
 
-        <select>
+        <select formControlName="country">
           <option value="ru">Россия</option>
           <option value="ua">Украина</option>
           <option value="by">Беларусь</option>
@@ -28,7 +56,7 @@
       </div>
 
       <div class="form-control">
-        <input type="text">
+        <input type="text" formControlName="city" placeholder="Город">
       </div>
 
       <button class="btn" type="button">Выбрать столицу</button>

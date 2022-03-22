@@ -47,16 +47,16 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
-}
 
-.btn:disabled {
+  &:disabled {
     background: #ccc;
     color: #000;
     cursor: not-allowed;
-}
+  }
 
-.btn:hover {
+  &:hover {
     opacity: 0.8;
+  }
 }
 
 .btn.btn-danger {
@@ -91,13 +91,18 @@ img {
   margin: 0.7rem 0;
 }
 
-.card  p {
+.card p {
     display: flex;
     justify-content: space-between;
 }
 
-.card span.completed {
+.card p span.completed {
       text-decoration: line-through;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
 }
 
 input,
@@ -113,4 +118,33 @@ textarea {
 
 hr {
   margin: .5rem 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+  background: #dc3545;
+  color: #fff;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li.active a {
+    font-weight: bold;
+    color: #333333;
+    cursor: default;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
 }

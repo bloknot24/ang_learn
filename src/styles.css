@@ -47,16 +47,16 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+}
 
-  &:disabled {
+.btn:disabled {
     background: #ccc;
     color: #000;
     cursor: not-allowed;
-  }
+}
 
-  &:hover {
+.btn:hover {
     opacity: 0.8;
-  }
 }
 
 .btn.btn-danger {

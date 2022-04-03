@@ -12,7 +12,10 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
-        ]
+      ],
+      "urls": [
+          "@import url('https://fonts.googleapis.com/css?family=Roboto');"
+      ]
       }
     },
     {
@@ -30,11 +33,13 @@
     }
 ], "dataGroups": [
     {
-        "name": "datafetch",
-        "urls": [],
+        "name": "firebase-posts",
+        "urls": [
+            "https://angular-blog-34b69-default-rtdb.europe-west1.firebasedatabase.app/**"
+        ],
         "cacheConfig": {
-            "maxSize": 0,
-            "maxAge": "12h"
+            "maxSize": 5,
+            "maxAge": "3600"
         }
     }
 ]
